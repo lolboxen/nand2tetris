@@ -56,11 +56,7 @@ CHIP ALU {
    Mux16(a=xAndy,b=xAddy,sel=f,out=xy);
 
    Not16(in=xy,out=notxy);
-   Mux16(a=xy,b=notxy,sel=no,out=out);
-   Mux16(a=xy,b=notxy,sel=no,out=zrtest);
-   Mux16(a=xy,b=notxy,sel=no,out[15]=ngtest);
-
-   And(a=ngtest,b=true,out=ng);
+   Mux16(a=xy,b=notxy,sel=no,out=out,out=zrtest,out[15]=ngtest,out[15]=ng);
 
    Add16(a=zrtest,b=true,out[15]=zrtestAddn1);
    Xor(a=zrtestAddn1,b=ngtest,out=zr);
